@@ -32,6 +32,7 @@
   .mu-task-list {
     li {
       &.mu-task-list-item {
+        margin: 0.5em 0;
         input[type='checkbox'] {
           top: 1em;
           &::after {
@@ -72,5 +73,11 @@
     .mu-math {
       vertical-align: top;
     }
+  }
+}
+
+.markdown-body {
+  a.mu-inline-rule {
+    pointer-events: auto;
   }
 }
