@@ -1,16 +1,17 @@
+/** @format */
+
 import Muya from '../lib'
 import EmojiPicker from '../lib/ui/emojiPicker'
 import FormatPicker from '../lib/ui/formatPicker'
 // import ImagePicker from '../lib/ui/imagePicker'
+import CodePicker from '../lib/ui/codePicker'
 import ImageSelector from '../lib/ui/imageSelector'
 import ImageToolBar from '../lib/ui/imageToolbar'
-import ImageTransformer from '../lib/ui/transformer'
-import CodePicker from '../lib/ui/codePicker'
-import TableColumnTools from '../lib/ui/tableColumnTools'
+import PreviewTools from '../lib/ui/previewTools'
 import QuickInsert from '../lib/ui/quickInsert'
 import TableDragBar from '../lib/ui/tableDragBar'
 import TableTools from '../lib/ui/tableTools'
-import PreviewTools from '../lib/ui/previewTools'
+import ImageTransformer from '../lib/ui/transformer'
 
 import FrontButton from '../lib/ui/frontButton'
 import FrontMenu from '../lib/ui/frontMenu'
@@ -41,24 +42,24 @@ const DEFAULT_STATE = [
     name: 'code-block',
     meta: {
       type: 'indented', // indented or fenced
-      lang: 'javascript' // lang will be enpty string if block is indented block. set language will auto change into fenced code block.
+      lang: 'javascript', // lang will be enpty string if block is indented block. set language will auto change into fenced code block.
     },
-    text: 'const foo = `bar`'
+    text: 'const foo = `bar`',
   },
   {
     name: 'paragraph',
-    text: 'foo bar'
+    text: 'foo bar',
   },
   {
     name: 'math-block',
     text: 'a \\ne b',
     meta: {
-      mathStyle: ''
-    }
+      mathStyle: '',
+    },
   },
   {
     name: 'html-block',
-    text: '<div>\nfoo bar\n</div>'
+    text: '<div>\nfoo bar\n</div>',
   },
   // Table
   {
@@ -70,18 +71,18 @@ const DEFAULT_STATE = [
           {
             name: 'table.cell',
             meta: {
-              align: 'right' // none left center right, cells in the same column has the same alignment.
+              align: 'right', // none left center right, cells in the same column has the same alignment.
             },
-            text: 'foo'
+            text: 'foo',
           },
           {
             name: 'table.cell',
             meta: {
-              align: 'none' // none left center right, cells in the same column has the same alignment.
+              align: 'none', // none left center right, cells in the same column has the same alignment.
             },
-            text: 'bar'
-          }
-        ]
+            text: 'bar',
+          },
+        ],
       },
       {
         name: 'table.row',
@@ -89,20 +90,20 @@ const DEFAULT_STATE = [
           {
             name: 'table.cell',
             meta: {
-              align: 'right' // none left center right, cells in the same column has the same alignment.
+              align: 'right', // none left center right, cells in the same column has the same alignment.
             },
-            text: 'zar'
+            text: 'zar',
           },
           {
             name: 'table.cell',
             meta: {
-              align: 'none' // none left center right, cells in the same column has the same alignment.
+              align: 'none', // none left center right, cells in the same column has the same alignment.
             },
-            text: 'foo bar'
-          }
-        ]
-      }
-    ]
+            text: 'foo bar',
+          },
+        ],
+      },
+    ],
   },
   // Indented code blocks and Fenced code blocks
   // Order List Blocks
@@ -111,7 +112,7 @@ const DEFAULT_STATE = [
     meta: {
       start: 0, // 0 ~ 999999999
       loose: true, // true or false, true is loose list and false is tight.
-      delimiter: '.' // . or )
+      delimiter: '.', // . or )
     },
     children: [
       // List Item
@@ -120,18 +121,18 @@ const DEFAULT_STATE = [
         children: [
           {
             name: 'paragraph',
-            text: 'foo\nbar'
-          }
-        ]
-      }
-    ]
+            text: 'foo\nbar',
+          },
+        ],
+      },
+    ],
   },
   // Bullet List Blocks
   {
     name: 'bullet-list',
     meta: {
       marker: '-', // - + *
-      loose: false // true or false
+      loose: false, // true or false
     },
     children: [
       // List Item
@@ -140,97 +141,98 @@ const DEFAULT_STATE = [
         children: [
           {
             name: 'paragraph',
-            text: 'foo bar1'
+            text: 'foo bar1',
           },
           {
             name: 'paragraph',
-            text: 'foo bar2'
-          }
-        ]
-      }
-    ]
+            text: 'foo bar2',
+          },
+        ],
+      },
+    ],
   },
   // Task List
   {
     name: 'task-list',
     meta: {
-      marker: '-' // - + *
+      marker: '-', // - + *
     },
     children: [
       {
         name: 'task-list-item',
         meta: {
-          checked: false // true or false
+          checked: false, // true or false
         },
         children: [
           {
             name: 'paragraph',
-            text: 'a'
-          }
-        ]
+            text: 'a',
+          },
+        ],
       },
       {
         name: 'task-list-item',
         meta: {
-          checked: true // true or false
+          checked: true, // true or false
         },
         children: [
           {
             name: 'paragraph',
-            text: 'b'
-          }
-        ]
+            text: 'b',
+          },
+        ],
       },
       {
         name: 'task-list-item',
         meta: {
-          checked: false // true or false
+          checked: false, // true or false
         },
         children: [
           {
             name: 'paragraph',
-            text: 'c'
-          }
-        ]
+            text: 'c',
+          },
+        ],
       },
       {
         name: 'task-list-item',
         meta: {
-          checked: false // true or false
+          checked: false, // true or false
         },
         children: [
           {
             name: 'paragraph',
-            text: 'd'
-          }
-        ]
-      }
-    ]
+            text: 'd',
+          },
+        ],
+      },
+    ],
   },
   {
     name: 'paragraph',
-    text: '**blod** *emphasis* :man: <u>underline</u> <mark>highlight</mark> `inline code`~~删除~~ [百度](http://www.baidu.com) http://google.com'
+    text:
+      '**blod** *emphasis* :man: <u>underline</u> <mark>highlight</mark> `inline code`~~删除~~ [百度](http://www.baidu.com) http://google.com',
   },
   // Thematic breaks
   {
     name: 'thematic-break',
-    text: '---' // --- or ___ or ***
+    text: '---', // --- or ___ or ***
   },
   {
     name: 'atx-heading',
     meta: {
-      level: 1 // 1 ~ 6
+      level: 1, // 1 ~ 6
     },
-    text: '# foo bar' // can not contain `\n`!
+    text: '# foo bar', // can not contain `\n`!
   },
   // Setext headings
   {
     name: 'setext-heading',
     meta: {
       level: 1,
-      underline: '===' // === or ---
+      underline: '===', // === or ---
     },
-    text: 'foo\nbar' // can contain multiple lines.
+    text: 'foo\nbar', // can contain multiple lines.
   },
   // Block quotes
   {
@@ -239,14 +241,15 @@ const DEFAULT_STATE = [
       {
         // Can contains any type and number of leaf blocks.
         name: 'paragraph',
-        text: 'foo\nbar'
-      }
-    ]
+        text: 'foo\nbar',
+      },
+    ],
   },
   {
     name: 'paragraph',
-    text: 'Image![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592848169049&di=1bf848686f738f8697ec90a2d484a29c&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_pic%2F01%2F54%2F05%2F625746fd5b60878.jpg) bar &gt; *zar* <ruby>北京<rt>Beijing</rt></ruby> foo bar $a \\ne b$ 和自己'
-  }
+    text:
+      'Image![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592848169049&di=1bf848686f738f8697ec90a2d484a29c&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_pic%2F01%2F54%2F05%2F625746fd5b60878.jpg) bar &gt; *zar* <ruby>北京<rt>Beijing</rt></ruby> foo bar $a \\ne b$ 和自己',
+  },
 ]
 
 // const DEFAULT_MARKDOWN = `
@@ -292,7 +295,7 @@ Muya.use(EmojiPicker)
 Muya.use(FormatPicker)
 // Muya.use(ImagePicker)
 Muya.use(ImageSelector, {
-  unsplashAccessKey: process.env.UNSPLASH_ACCESS_KEY
+  unsplashAccessKey: process.env.UNSPLASH_ACCESS_KEY,
 })
 Muya.use(ImageToolBar)
 Muya.use(ImageTransformer)
@@ -300,7 +303,7 @@ Muya.use(CodePicker)
 
 Muya.use(FrontButton)
 Muya.use(FrontMenu)
-Muya.use(TableColumnTools)
+// Muya.use(TableColumnTools)
 Muya.use(QuickInsert)
 Muya.use(TableDragBar)
 Muya.use(TableTools)
@@ -329,7 +332,7 @@ redoBtn.addEventListener('click', () => {
   muya.redo()
 })
 
-searchInput.addEventListener('input', (event) => {
+searchInput.addEventListener('input', event => {
   const value = event.target.value
 
   muya.search(value, { isRegexp: true })
@@ -351,7 +354,7 @@ allBtn.addEventListener('click', () => {
   muya.replace(replaceInput.value, { isSingle: false })
 })
 
-muya.on('json-change', (changes) => {
+muya.on('json-change', changes => {
   // console.log(JSON.stringify(muya.getState(), null, 2))
   // console.log(muya.getMarkdown())
   // console.log(JSON.stringify(changes, null, 2))
