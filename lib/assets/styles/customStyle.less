@@ -8,24 +8,69 @@
   background: #fff;
 
   color: var(--editorColor);
-}
 
-code {
-  color: #c3cee3;
-}
+  code {
+    color: #c3cee3;
+  }
 
-pre.mu-code-block {
-  background: #263238;
-}
+  pre.mu-code-block {
+    background: #263238;
+  }
 
-table.mu-table-inner {
-  tr:first-of-type {
-    td {
-      font-weight: 700;
+  table.mu-table-inner {
+    tr:first-of-type {
+      td {
+        font-weight: 700;
+      }
     }
   }
-}
 
-.mu-table {
-  overflow-x: auto;
+  .mu-table {
+    overflow-x: auto;
+  }
+
+  .mu-task-list {
+    li {
+      &.mu-task-list-item {
+        input[type='checkbox'] {
+          top: 1em;
+          &::after {
+            top: 3px;
+          }
+        }
+      }
+    }
+    &.mu-tight-list {
+      li {
+        &.mu-task-list-item {
+          input[type='checkbox'] {
+            top: 0.5em;
+          }
+        }
+      }
+    }
+  }
+
+  a.mu-inline-rule {
+    color: var(--themeColor);
+    border-bottom: 1px solid var(--themeColor80);
+  }
+
+  span.katex-html {
+    color: #ef476f;
+  }
+  .mu-math-block {
+    background: rgba(#118ab2, 0.1);
+    &.mu-active {
+      background-color: #263238;
+    }
+    .katex-html {
+      color: var(--editorColor80);
+    }
+  }
+  .mu-content {
+    .mu-math {
+      vertical-align: top;
+    }
+  }
 }
