@@ -3,6 +3,8 @@
 .mu-container {
   /* box-sizing: border-box;
   max-width: 800px; */
+  font-size: 16px;
+  line-height: 1.6;
   margin: 0 auto;
   padding: 50px;
 
@@ -14,11 +16,16 @@
     color: #c3cee3;
   }
 
+  code.mu-inline-rule {
+    color: var(--editorBgColor);
+    background: var(--themeColor);
+  }
+
   pre.mu-code-block {
     background: #263238;
   }
 
-  table.mu-table-inner {
+  tabletable {
     tr:first-of-type {
       td {
         font-weight: 700;
@@ -74,6 +81,83 @@
     .mu-math {
       vertical-align: top;
     }
+  }
+
+  table {
+    min-width: 100%;
+    margin: 0;
+  }
+
+  table {
+    padding: 0;
+
+    word-break: initial;
+
+    border-collapse: collapse;
+  }
+
+  table tr {
+    margin: 0;
+    padding: 0;
+  }
+
+  table tr th {
+    position: relative;
+
+    margin: 0;
+    padding: 6px 13px;
+
+    font-weight: bold;
+    text-align: left;
+  }
+
+  table tr td {
+    position: relative;
+
+    margin: 0;
+    padding: 6px 13px;
+
+    text-align: left;
+  }
+
+  table tr th::before,
+  table tr td::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    box-sizing: border-box;
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+
+    border: 1px solid var(--tableBorderColor);
+
+    content: '';
+    pointer-events: none;
+  }
+
+  table tr th:first-child,
+  table tr td:first-child {
+    margin-top: 0;
+  }
+
+  table tr th:last-child,
+  table tr td:last-child {
+    margin-bottom: 0;
+  }
+
+  table td[data-align='left'] {
+    text-align: left;
+  }
+
+  table td[data-align='center'] {
+    text-align: center;
+  }
+
+  table td[data-align='right'] {
+    text-align: right;
   }
 }
 
