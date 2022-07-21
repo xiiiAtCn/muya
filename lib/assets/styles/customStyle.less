@@ -67,6 +67,8 @@
   blockquote {
     position: relative;
 
+    background: var(--themeColor10);
+
     margin-right: 0;
     margin-left: 0;
     padding: 0 1em;
@@ -81,7 +83,7 @@
       width: 3px;
       height: 100%;
 
-      background: var(--editorColor50);
+      background: var(--themeColor);
 
       content: '';
     }
@@ -122,7 +124,7 @@
     margin-top: 1.5em;
     padding: 1em;
 
-    color: var(--editorColor50);
+    color: var(--editorBgColor);
     font-size: 90%;
     font-family: 'DejaVu Sans Mono', 'Source Code Pro', 'Droid Sans Mono', Consolas, monospace;
     line-height: 1.6;
@@ -334,17 +336,21 @@
       }
     }
   }
-
+  .mu-table {
+    overflow: auto;
+  }
   table {
     overflow-x: auto;
     min-width: 100%;
     border: 1px;
-
+    tr:nth-of-type(2n) {
+      background: var(--themeColor10);
+    }
     tr {
       th,
       td {
         position: relative;
-
+        min-width: 10em;
         margin: 0;
         padding: 6px 13px;
 
@@ -383,6 +389,7 @@
 
     tr:first-of-type {
       td {
+        white-space: nowrap;
         font-weight: 700;
       }
     }
@@ -391,6 +398,11 @@
   /* html block and math block, diagram block */
 
   figure {
+    &.mu-html-container,
+    &.mu-math-block,
+    &.mu-math-block {
+      background-color: var(--themeColor20);
+    }
     &.mu-html-block > .mu-html-container,
     &.mu-math-block > .mu-math-container,
     &.mu-diagram-block > .mu-diagram-container {
@@ -402,7 +414,6 @@
       margin-top: 0;
       margin-bottom: 0;
       overflow: visible;
-
       opacity: 0;
     }
 
@@ -417,7 +428,7 @@
       box-sizing: border-box;
       width: 100%;
       height: auto;
-
+      background: var(--codeBlockBgColor);
       opacity: 1;
     }
 
