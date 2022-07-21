@@ -422,7 +422,7 @@ figure.mu-diagram-block > .mu-diagram-container {
   position: absolute;
   z-index: -1;
 
-  width: 0;
+  /* width: 0; 宽度设置为0在chrome上会占据额外空间 */
   height: 0;
   margin-top: 0;
   margin-bottom: 0;

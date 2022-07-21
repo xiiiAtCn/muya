@@ -1,7 +1,7 @@
 /** @format */
 
 .mu-container {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
   margin: 0 auto;
   padding: 50px;
@@ -401,7 +401,7 @@
     &.mu-html-container,
     &.mu-math-block,
     &.mu-math-block {
-      background-color: var(--themeColor20);
+      // background-color: var(--themeColor20);
     }
     &.mu-html-block > .mu-html-container,
     &.mu-math-block > .mu-math-container,
@@ -409,7 +409,7 @@
       position: absolute;
       z-index: -1;
 
-      width: 0;
+      /* width: 0; 宽度设置为0在chrome上会占据额外空间 */
       height: 0;
       margin-top: 0;
       margin-bottom: 0;
