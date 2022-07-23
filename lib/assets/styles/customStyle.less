@@ -9,7 +9,13 @@
   color: var(--editorColor);
   white-space: pre-wrap;
   word-break: break-word;
-
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    box-shadow: 0 3px 3px 0px var(--themeColor);
+  }
   p,
   blockquote,
   ul,

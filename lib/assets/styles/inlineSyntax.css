@@ -141,7 +141,7 @@ code.mu-inline-rule {
   display: inline-block;
   padding: 0.3em 0.5em;
 
-  color: var(--editorColor);
+  color: var(--themeColor);
 
   background: var(--floatBgColor);
   border-radius: 4px;
@@ -198,7 +198,7 @@ div .mu-math-error,
 
   padding: 0;
 
-  color: var(--editorColor);
+  color: var(--themeColor);
 
   background: transparent;
   border: none;
