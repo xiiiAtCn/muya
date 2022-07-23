@@ -237,14 +237,7 @@
 
   /* list */
 
-  ul,
-  ol {
-    li {
-      margin: 0.7em 0;
-    }
-  }
-
-  .mu-tight-list {
+  ul.mu-tight-list {
     padding-top: 0;
     padding-bottom: 0;
     li {
@@ -253,17 +246,25 @@
         margin: 0;
         padding: 0;
       }
+      & > input[type='checkbox'] {
+        top: 0.3em !important;
+      }
     }
   }
 
   ol.mu-order-list,
   ol.mu-bullet-list {
-    padding-left: 0;
+    padding-left: 1em;
+    list-style: auto;
     &:first-child {
       margin-top: 0;
     }
     &:last-child {
       margin-bottom: 0;
+    }
+
+    p {
+      margin: 0;
     }
   }
 
@@ -276,7 +277,7 @@
 
       & > input[type='checkbox'] {
         position: absolute;
-        top: 0.3em;
+        top: 0.8em;
         left: -22px;
 
         width: 12px;
@@ -615,6 +616,11 @@
 }
 
 .markdown-body {
+  .mu-container {
+    &::after {
+      content: none;
+    }
+  }
   a.mu-inline-rule {
     pointer-events: auto;
   }
