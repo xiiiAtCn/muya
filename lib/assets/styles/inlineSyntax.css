@@ -18,9 +18,14 @@
 
 /* link and auto-link and reference link */
 a.mu-inline-rule {
-  color: var(--editorColor80);
+  /* color: var(--editorColor80);
 
-  pointer-events: none;
+  pointer-events: none; */
+  pointer-events: auto;
+  font-weight: 500;
+  color: var(--themeRedColor);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .mu-link-in-bracket {
@@ -31,12 +36,8 @@ a.mu-inline-rule {
 code.mu-inline-rule {
   margin: 0;
   padding: 0.2em 0.4em;
-
-  color: var(--editorBgColor);
-  font-size: 0.8em;
-  font-family: 'DejaVu Sans Mono', 'Source Code Pro', 'Droid Sans Mono', Consolas, monospace;
-
-  background-color: var(--themeColor);
+  font-weight: 700;
+  color: var(--themeCenterColor);
   border-radius: 3px;
 }
 
