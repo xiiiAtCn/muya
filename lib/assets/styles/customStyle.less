@@ -8,23 +8,26 @@
   white-space: pre-wrap;
   word-break: break-word;
   position: relative;
+  padding-bottom: 2em;
   &::after {
     content: '';
     display: block;
     height: 1px;
     box-shadow: 0 3px 3px 0px var(--themeColor);
   }
-  p,
-  blockquote,
-  ul,
-  ol,
-  dl,
-  table,
-  figure {
-    margin: 0;
-    padding: 0.5em 0;
+  > * {
+    margin: 1em 0;
   }
 
+  // p,
+  // blockquote,
+  // ul,
+  // ol,
+  // dl,
+  // table,
+  figure {
+    padding: 0.5em;
+  }
   h1,
   h2,
   h3,
@@ -32,9 +35,6 @@
   h5,
   h6 {
     position: relative;
-
-    margin-top: 0;
-    margin-bottom: 0;
     margin: 1em 0;
     color: var(--editorColor80);
     font-weight: bold;
@@ -74,7 +74,7 @@
 
     margin-right: 0;
     margin-left: 0;
-    padding: 0 1em;
+    padding: 1em 1.5em;
 
     font-size: 1.1em;
     &::before {
@@ -83,7 +83,7 @@
       left: 0;
 
       display: block;
-      width: 3px;
+      width: 4px;
       height: 100%;
 
       background: var(--themeColor);
@@ -234,9 +234,11 @@
 
   /* list */
 
-  ul.mu-tight-list {
+  ul,
+  ol {
     padding-top: 0;
     padding-bottom: 0;
+    padding-left: 1.5em;
     li {
       margin: 0.5em 0;
       p {
@@ -248,26 +250,14 @@
       }
     }
   }
-
-  ol.mu-order-list,
-  ol.mu-bullet-list {
-    padding-left: 1em;
+  ul.mu-bullet-list {
+    list-style: disc;
+  }
+  ol.mu-order-list {
     list-style: auto;
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    p {
-      margin: 0;
-    }
   }
 
   ul.mu-task-list {
-    padding-left: 1.5em;
-
     li.mu-task-list-item {
       position: relative;
       list-style-type: none;
