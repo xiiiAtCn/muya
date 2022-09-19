@@ -181,6 +181,7 @@
 
   .mu-fenced-code.mu-active .mu-code::after {
     content: 'fenced';
+    color: var(--editorColor30);
   }
 
   .mu-indented-code.mu-active .mu-code::after {
@@ -189,7 +190,7 @@
 
   .mu-fenced-code,
   .mu-indented-code {
-    .mu-active {
+    &.mu-active {
       .mu-code:after {
         position: absolute;
         right: 0.5em;
@@ -216,16 +217,15 @@
   }
 
   .mu-code-block {
-    .mu-active {
+    &.mu-active {
       .mu-language-input {
         top: -1.8em;
-        z-index: initial;
+        z-index: 2;
         left: 30px;
         opacity: 1;
+        color: var(--themeColor);
 
         &:empty::after {
-          color: var(--editorColor10);
-
           content: 'Input Language Identifier...';
         }
       }
