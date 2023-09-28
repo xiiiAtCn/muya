@@ -15,7 +15,8 @@
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "pub": "npm publish --access public"
+    "pub": "npm publish --access public",
+    "tsc-lint": "chmod +x tsc-lint.sh && ./tsc-lint.sh"
   },
   "repository": {
     "type": "git",
